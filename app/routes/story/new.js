@@ -5,10 +5,8 @@ export default Route.extend({
     return this.get('store').peekRecord('project', params.project_id);
   },
   actions:{
-    addNew(code,description){
-      let story = this.get('store').createRecord('story',{code:code,description:description});
-      let leProjet = this.get('store').peekRecord('project',1);
-      story.project =  leProjet;
+    addNew(code,description, project){
+      let story = this.get('store').createRecord('story',{code:code,description:description, project:project});
       story.save();
       this.transitionTo('projects');
     },
