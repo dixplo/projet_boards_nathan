@@ -1,0 +1,58 @@
+<h2>Projects</h2>
+
+{{outlet}}
+
+<table class="ui fixed padded table">
+  <thead>
+  <tr class="center aligned">
+    <th>Name</th>
+    <th>Description</th>
+    <th>StartDate</th>
+    <th>DueDate</th>
+    <th>Owner</th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+  {{#each model.projects as |projects|}}
+    <tr class="center aligned">
+      <td><b>{{projects.name}}</b></td>
+      <td>{{projects.description}}</td>
+      <td>{{projects.startDate }}</td>
+      <td>{{projects.dueDate}}</td>
+      <td>{{projects.owner}}</td>
+      <td class="right aligned single line">
+        <LinkTo @route="project" @model={{projects.id}}>
+          <button class="ui icon button">
+            <i class="eye icon"></i>
+          </button>
+        </LinkTo>
+        <LinkTo @route="projects.edit" @model={{projects.id}}>
+          <button class="ui icon button">
+            <i class="edit icon"></i>
+          </button>
+        </LinkTo>
+        <LinkTo @route="projects.delete" @model={{projects.id}}>
+          <button class="ui red icon button">
+            <i class="trash icon"></i>
+          </button>
+        </LinkTo>
+      </td>
+    </tr>
+  {{/each}}
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="right aligned single line">
+      <LinkTo @route="projects.new">
+        <button class="ui teal button">
+          <i class="calendar plus outline icon"></i>
+          Add project
+        </button>
+      </LinkTo>
+    </td>
+  </tr>
+  </tbody>
+</table>

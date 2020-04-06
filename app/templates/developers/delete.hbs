@@ -1,0 +1,11 @@
+{{outlet}}
+
+<div class="ui segment">
+  <div class="ui form">
+    <div class="field">
+      <h3>Are you sure ? Do you really want to delete {{model.identity}} ? </h3>
+    </div>
+    <button class="ui small teal button" {{action "delete" model}}>Yes</button>
+    <button class="ui small red button" {{action "cancel" model}}>Cancel</button>
+  </div>
+</div>

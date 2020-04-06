@@ -1,0 +1,17 @@
+<div class="ui segment">
+  <div class="ui form">
+    <div class="field">
+      <div class="fields">
+        <div class="five wide field">
+          <Input @value={{model.code}} type="text" placeholder="Code"/>
+        </div>
+        <div class="eleven wide field">
+          <Input @value={{model.description}} type="text" placeholder="Descriptif"/>
+        </div>
+      </div>
+    </div>
+    <button class="ui small teal button" {{action "addNew" model.code model.description}}>Add</button>
+    <button class="ui small red button" {{action "cancel"}}>Cancel</button>
+
+  </div>
+</div>

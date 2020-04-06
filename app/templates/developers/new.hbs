@@ -1,0 +1,11 @@
+{{outlet}}
+
+<div class="ui segment">
+  <div class="ui form">
+    <div class="field">
+      <Input @value={{model.identity}} type="text" placeholder="Identity"/>
+    </div>
+    <button class="ui small teal button" {{action "addNew" model.identity}}>Add</button>
+    <button class="ui small red button" {{action "cancel"}}>Cancel</button>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+{{outlet}}
+
+<div class="ui segment">
+  <div class="ui form">
+    <div class="field">
+      <div class="fields">
+        <div class="five wide field">
+          <Input @value={{model.name}} type="text" placeholder="Name"/>
+        </div>
+        <div class="eleven wide field">
+          <Input @value={{model.description}} type="text" placeholder="Description"/>
+        </div>
+      </div>
+      <div class="fields">
+        <div class="four wide field">
+          <Input @value={{model.startDate}} type="text" placeholder="StartDate"/>
+        </div>
+        <div class="four wide field">
+          <Input @value={{model.dueDate}} type="text" placeholder="DueDate"/>
+        </div>
+        <div class="eight wide field">
+          {{#ui-dropdown class="selection" selected=dev onChange=(action (mut dev))}}
+            <div class="default text">Owner</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              {{#each model.developers as |developer|}}
+                <div data-value={{developer.identity}} class="item">
+                  {{developer.identity}}
+                </div>
+              {{/each}}
+            </div>
+          {{/ui-dropdown}}
+        </div>
+      </div>
+    </div>
+    <button class="ui small teal button" {{action "addNew" model.name model.description model.startDate model.dueDate dev}}>Add</button>
+    <button class="ui small red button" {{action "cancel"}}>Cancel</button>
+
+  </div>
+</div>
