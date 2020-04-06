@@ -1,12 +1,8 @@
 import Route from '@ember/routing/route';
-import RSVP from 'rsvp';
 
 export default Route.extend({
   model(params) {
-    return RSVP.hash({
-      projects: this.get('store').peekRecord('project', params.project_id),
-      stories: this.get('store').findAll('story')
-    });
+    return this.get('store').peekRecord('project', params.project_id);
   },
   actions:{
     addNew(code,description){
