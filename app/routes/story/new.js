@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import {set} from '@ember/object'
 
 export default Route.extend({
   model(params) {
@@ -6,7 +7,8 @@ export default Route.extend({
   },
   actions:{
     addNew(code,description, project){
-      let story = this.get('store').createRecord('story',{code:code,description:description, project:project});
+      let story = this.get('store').createRecord('story',{code:code,description:description});
+      set(story,'project',project);
       story.save();
       this.transitionTo('projects');
     },
