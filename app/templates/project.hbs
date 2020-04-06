@@ -11,27 +11,10 @@
     <th></th>
   </tr></thead>
   <tbody>
-  {{#each model.projects.stories as |story|}}
+  {{#each model.stories as |story|}}
     <tr class="center aligned">
       <td><b>{{story.code}}</b></td>
-      <td>{{story.descriptif}}</td>
-      <td class="right aligned single line">
-        <LinkTo @route="project" @model={{projects.id}}>
-          <button class="ui icon button">
-            <i class="eye icon"></i>
-          </button>
-        </LinkTo>
-        <LinkTo @route="projects.edit" @model={{projects.id}}>
-          <button class="ui icon button">
-            <i class="edit icon"></i>
-          </button>
-        </LinkTo>
-        <LinkTo @route="projects.delete" @model={{projects.id}}>
-          <button class="ui red icon button">
-            <i class="trash icon"></i>
-          </button>
-        </LinkTo>
-      </td>
+      <td>{{story.description}}</td>
     </tr>
   {{/each}}
   <tr>
