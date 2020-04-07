@@ -1,33 +1,28 @@
-<h2>Stories</h2>
-<h4>{{model.name}}</h4>
+<h2 class="ui header">
+  <i class="folder open icon"></i>
+  <div class="content">
+    {{model.name}}
+    <div class="sub header">{{model.description}}</div>
+  </div>
+</h2>
 
 {{outlet}}
 
-<table class="ui fixed padded table">
-  <thead>
-  <tr class="center aligned">
-    <th>Code</th>
-    <th>Descriptif</th>
-    <th></th>
-  </tr></thead>
-  <tbody>
+<div class="ui large relaxed divided list">
   {{#each model.stories as |story|}}
-    <tr class="center aligned">
-      <td><b>{{story.code}}</b></td>
-      <td>{{story.description}}</td>
-    </tr>
+  <div class="item">
+    <i class="file icon"></i>
+    <div class="content">
+      <a class="header">{{story.code}}</a>
+      <div class="description">{{story.description}}</div>
+    </div>
+  </div>
   {{/each}}
-  <tr>
-    <td></td>
-    <td></td>
-    <td class="right aligned single line">
-      <LinkTo @route="story.new" @model={{model.id}}>
-        <button class="ui teal button">
-          <i class="calendar plus outline icon"></i>
-          Add story
-        </button>
-      </LinkTo>
-    </td>
-  </tr>
-  </tbody>
-</table>
+</div>
+
+<LinkTo @route="story.new" @model={{model.id}}>
+  <button class="ui teal button">
+    <i class="calendar plus outline icon"></i>
+    Add story
+  </button>
+</LinkTo>

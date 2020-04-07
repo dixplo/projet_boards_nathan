@@ -5,6 +5,6 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   startDate: DS.attr('string'),
   dueDate: DS.attr('string'),
-  owner: DS.attr('string'),
+  owner:DS.belongsTo('developer'),
   stories: DS.hasMany('story')
 });

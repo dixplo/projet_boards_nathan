@@ -23,7 +23,7 @@
             <div class="default text">Owner</div>
             <i class="dropdown icon"></i>
             <div class="menu">
-              {{#each model.developers as |developer|}}
+              {{#each model as |developer|}}
                 <div data-value={{developer.identity}} class="item">
                   {{developer.identity}}
                 </div>
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <button class="ui small teal button" {{action "addNew" model.name model.description model.startDate model.dueDate dev}}>Add</button>
+    <button class="ui small teal button" {{action "addNew" model.name model.description model.startDate model.dueDate dev model}}>Add</button>
     <button class="ui small red button" {{action "cancel"}}>Cancel</button>
 
   </div>
