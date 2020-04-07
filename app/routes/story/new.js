@@ -9,8 +9,9 @@ export default Route.extend({
     addNew(code,description, project){
       let story = this.get('store').createRecord('story',{code:code,description:description});
       set(story,'project',project);
-      story.save();
-      this.transitionTo('projects');
+      story.save().then(()=>{
+        project.save().then(()=>{this.transitionTo('projects');});
+      });
     },
     cancel() {
       this.transitionTo('projects');
