@@ -1,9 +1,14 @@
 import Route from '@ember/routing/route'
 import {set} from '@ember/object'
+import RSVP from 'rsvp'
+import EmberObject from '@ember/object'
 
 export default Route.extend({
   model() {
-    return this.get('store').findAll('developer');
+    return RSVP.hash({
+      project: EmberObject.create(),
+      developers: this.get('store').findAll('developer')
+    });
   },
   actions:{
   addNew(name,description,startDate,dueDate,owner,developer){
