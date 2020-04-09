@@ -8,11 +8,22 @@
 
 {{outlet}}
 
-<div class="ui large relaxed divided list">
+<div class="ui big relaxed divided list">
   {{#each model.stories as |story|}}
   <div class="item">
     <i class="file icon"></i>
     <div class="content">
+      <div class="right floated content">
+        <div class="ui compact menu">
+          <a class="item">
+            <i class="user icon"></i>
+            {{story.developer.identity}}
+          </a>
+          <a class="red item">
+             Update
+          </a>
+        </div>
+      </div>
       <a class="header">{{story.code}}</a>
       <div class="description">{{story.description}}</div>
     </div>

@@ -1,17 +1,42 @@
 <div class="ui segment">
   <div class="ui form">
     <div class="field">
-      <div class="fields">
-        <div class="five wide field">
-          <Input @value={{model.code}} type="text" placeholder="Code"/>
-        </div>
-        <div class="eleven wide field">
-          <Input @value={{model.descriptif}} type="text" placeholder="Descriptif"/>
-        </div>
-      </div>
+      <Input @value={{model.code}} type="text" placeholder="Code"/>
     </div>
-    <button class="ui small teal button" {{action "addNew" model.code model.descriptif model}}>Add</button>
-    <button class="ui small red button" {{action "cancel"}}>Cancel</button>
-
+    <div class="field">
+      <Input @value={{model.descriptif}} type="text" placeholder="Descriptif"/>
+    </div>
+    <div class="field">
+      {{#ui-dropdown class="selection" onChange=(action (mut model.owner)) as |execute mapper|}}
+        <div class="default text">Owner</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          {{#each model.developers as |developer|}}
+            <div data-value="{{map-value mapper developer}}" class="item">
+              {{developer.identity}}
+            </div>
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
+    </div>
+    <div class="field">
+      {{#ui-dropdown class="fluid multiple selection" selected=country onChange=(action (mut country))}}
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <div class="menu">
+          {{#each countries as |item|}}
+            <div data-value="{{item.iso2}}" class="item">
+              <i class="{{item.iso2}} flag"></i>
+              {{item.name}}
+            </div>
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
+    </div>
+    <div class="field">
+      <button class="ui small teal button" {{action "addNew" model.code model.descriptif model.owner model.project}}>Add</button>
+      <button class="ui small red button" {{action "cancel"}}>Cancel</button>
+    </div>
   </div>
+
 </div>
