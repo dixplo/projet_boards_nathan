@@ -19,12 +19,12 @@
           <Input @value={{model.project.dueDate}} type="text" placeholder="DueDate"/>
         </div>
         <div class="eight wide field">
-          {{#ui-dropdown class="selection" selected=dev onChange=(action (mut dev))}}
+          {{#ui-dropdown class="selection" onChange=(action (mut model.project.owner)) as |execute mapper|}}
             <div class="default text">Owner</div>
             <i class="dropdown icon"></i>
             <div class="menu">
               {{#each model.developers as |developer|}}
-                <div data-value={{developer.identity}} class="item">
+                <div data-value="{{map-value mapper developer}}" class="item">
                   {{developer.identity}}
                 </div>
               {{/each}}
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <button class="ui small teal button" {{action "addNew" model.project.name model.project.description model.project.startDate model.project.dueDate dev model.developers}}>Add</button>
+    <button class="ui small teal button" {{action "addNew" model.project model.developers}}>Add</button>
     <button class="ui small red button" {{action "cancel"}}>Cancel</button>
 
   </div>

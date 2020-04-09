@@ -11,9 +11,9 @@ export default Route.extend({
     });
   },
   actions:{
-  addNew(name,description,startDate,dueDate,owner,developer){
-    let project = this.get('store').createRecord('project',{name:name,description:description,startDate:startDate,dueDate:dueDate});
-    set(project,'owner',owner);
+  addNew(model,developer){
+    let project = this.get('store').createRecord('project',{name:model.name,description:model.description,startDate:model.startDate,dueDate:model.dueDate});
+    set(project,'owner',model.owner);
     project.save().then(()=>{
       developer.save().then(()=>{this.transitionTo('projects');});
     });
