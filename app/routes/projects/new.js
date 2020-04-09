@@ -11,11 +11,11 @@ export default Route.extend({
     });
   },
   actions:{
-  addNew(model,developer){
+  addNew(model){
     let project = this.get('store').createRecord('project',{name:model.name,description:model.description,startDate:model.startDate,dueDate:model.dueDate});
     set(project,'owner',model.owner);
     project.save().then(()=>{
-      developer.save().then(()=>{this.transitionTo('projects');});
+      model.owner.save().then(()=>{this.transitionTo('projects');});
     });
   },
   cancel() {
