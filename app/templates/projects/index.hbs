@@ -19,7 +19,7 @@
       <td>{{projects.description}}</td>
       <td>{{projects.startDate }}</td>
       <td>{{projects.dueDate}}</td>
-      <td>{{projects.owner}}</td>
+      <td>{{projects.owner.identity}}</td>
       <td class="right aligned single line">
         <LinkTo @route="project" @model={{projects.id}}>
           <button class="ui icon button">
