@@ -3,12 +3,16 @@
     <a class="item" href="http://127.0.0.1:4200/">
       Home
     </a>
-    <a class="item" href="https://ppe-boards-nathan-theo.herokuapp.com/developers">
-      Developers
-    </a>
-    <a class="item" href="https://ppe-boards-nathan-theo.herokuapp.com/projects">
-      Projects
-    </a>
+    <LinkTo @route="developers">
+      <a class="item" >
+        Developers
+      </a>
+    </LinkTo>
+    <LinkTo @route="projects">
+      <a class="item">
+        Projects
+      </a>
+    </LinkTo>
   </div>
 {{outlet}}
 </div>
