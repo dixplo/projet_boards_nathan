@@ -1,11 +1,12 @@
-# Projet-boards
+# Projet boards
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+PPE de Théo Goupil et Nathan PRIOU en 2ème année de BTS Services Informatiques aux Organisations option Solutions Logicielles et Applications Métiers.
 
-## Prerequisites
+## Lien vers le projet 
 
-You will need the following things properly installed on your computer.
+https://projet-boards-nathan-theo.herokuapp.com/
+
+## Pré-requis pour l'installation
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with npm)
@@ -18,7 +19,7 @@ You will need the following things properly installed on your computer.
 * `cd projet-boards`
 * `npm install`
 
-## Running / Development
+## Lancer
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
