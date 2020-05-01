@@ -20,22 +20,23 @@
       {{/ui-dropdown}}
     </div>
     <div class="field">
-      {{#ui-dropdown class="fluid multiple selection" selected=country onChange=(action (mut country))}}
+      {{#ui-dropdown class="ui selection compact" onChange=(action (mut model.tag.color)) as |execute mapper|}}
+        <div class="default text">Select</div>
         <i class="dropdown icon"></i>
-        <div class="default text">Select Country</div>
         <div class="menu">
-          {{#each countries as |item|}}
-            <div data-value="{{item.iso2}}" class="item">
-              <i class="{{item.iso2}} flag"></i>
-              {{item.name}}
+          {{#each model.colors as |color|}}
+            <div data-value={{map-value mapper color.hexa}} class="item" style="color:{{color.hexa}}">
+              {{color.name}}
             </div>
           {{/each}}
         </div>
       {{/ui-dropdown}}
     </div>
     <div class="field">
-      <button class="ui small teal button" {{action "addNew" model.code model.descriptif model.owner model.project}}>Add</button>
-      <button class="ui small red button" {{action "cancel"}}>Cancel</button>
+      <button class="ui small teal button" {{action "addNew" model.code model.descriptif model.owner model.project model.project.id}}>Add</button>
+      <LinkTo @route="project" @model={{model.project.id}}>
+        <button class="ui small red button">Cancel</button>
+      </LinkTo>
     </div>
   </div>
 

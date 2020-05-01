@@ -10,15 +10,12 @@ export default Route.extend({
     });
   },
   actions:{
-    addNew(code,description,developer,project){
+    addNew(code,description,developer,project,id){
       let story = this.get('store').createRecord('story',{code:code,description:description,developer:developer});
       set(story,'project',project);
       story.save().then(()=>{
-        project.save().then(()=>{this.transitionTo('projects');});
+        project.save().then(()=>{this.transitionTo('project',id);});
       });
-    },
-    cancel() {
-      this.transitionTo('projects');
     }
   }
 });
